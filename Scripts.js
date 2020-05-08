@@ -46,13 +46,23 @@ let loadPhoto = (photoNumber) => {
 loadPhoto[currentPhoto];
 
 $('#right-arrow').click(() => {
+    if (currentPhoto < 5) {
     currentPhoto++;
     loadPhoto(currentPhoto);
-  })
+    }else{
+    currentPhoto = 0;
+    loadPhoto(currentPhoto);
+    };
+})
 
 $('#left-arrow').click(() => {
+    if (currentPhoto > 0) {
     currentPhoto--;
     loadPhoto(currentPhoto);
+    }else{
+    currentPhoto = 5;
+    loadPhoto(currentPhoto);
+    };
 })
 
 data.forEach((thumbnail, index) => {
@@ -65,3 +75,5 @@ $('.mini').click((event) => {
     $('#title').text(data[indexClicked].title);
     $('#text').text(data[indexClicked].text);
 });
+
+$(event.target).attr('data-number')
