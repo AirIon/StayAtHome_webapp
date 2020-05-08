@@ -55,6 +55,6 @@ $('#left-arrow').click(() => {
     loadPhoto(currentPhoto);
 })
 
-data.forEach((index) => {
-    $('#thumbnails-container').append(`<img class="mini" data-index="${index}" src="${index}">`);
+data.forEach((thumbnail, index) => {
+    $('#thumbnails-container').append(`<img class="mini" data-index="${index}" src="${thumbnail.photo}">`);
 });
