@@ -58,3 +58,10 @@ $('#left-arrow').click(() => {
 data.forEach((thumbnail, index) => {
     $('#thumbnails-container').append(`<img class="mini" data-index="${index}" src="${thumbnail.photo}">`);
 });
+
+$('.mini').click((event) => {
+    let indexClicked = $(event.target).attr('data-index');
+    $('#picture').attr('src', data[indexClicked].photo);
+    $('#title').text(data[indexClicked].title);
+    $('#text').text(data[indexClicked].text);
+});
