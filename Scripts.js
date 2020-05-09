@@ -32,7 +32,7 @@ let data = [];
 
 let currentPhoto = 0;
 
-$('#picture').attr('src',data[currentPhoto].photo);
+$('#picture').attr('data-number', currentPhoto).attr('src',data[currentPhoto].photo);
 $('#title').text(data[currentPhoto].title);
 $('#text').text(data[currentPhoto].text);
 
@@ -66,7 +66,7 @@ $('#left-arrow').click(() => {
 })
 
 data.forEach((thumbnail, index) => {
-    $('#thumbnails-container').append(`<img class="mini" data-index="${index}" src="${thumbnail.photo}">`);
+    $('#thumbnails-container').append(`<img class="mini" data-number="${currentPhoto}" data-index="${index}" src="${thumbnail.photo}">`);
 });
 
 $('.mini').click((event) => {
@@ -76,4 +76,4 @@ $('.mini').click((event) => {
     $('#text').text(data[indexClicked].text);
 });
 
-$(event.target).attr('data-number')
+$('.mini [data-number="${currentPhoto}"]').attr('id','active')
