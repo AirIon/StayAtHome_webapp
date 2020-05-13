@@ -66,7 +66,7 @@ $('#left-arrow').click(() => {
 })
 
 data.forEach((thumbnail, index) => {
-    $('#thumbnails-container').append(`<img class="mini" data-number="${currentPhoto}" data-index="${index}" src="${thumbnail.photo}">`);
+    $('#thumbnails-container').append(`<img class="mini" id="thumb${index}" data-index="${index}" src="${thumbnail.photo}">`);
 });
 
 $('.mini').click((event) => {
@@ -76,4 +76,4 @@ $('.mini').click((event) => {
     $('#text').text(data[indexClicked].text);
 });
 
-$('.mini [data-number="${currentPhoto}"]').attr('id','active')
+$(`thumb${index}`).css("border", "1px solid blue")
